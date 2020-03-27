@@ -22,8 +22,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Functions
 pin_dock_item() {
-    echo 'Pinning dock item: '$1
-
     app_location=null
     dirs=(/Applications /System/Applications /System/Applications/Utilities)
     for dir in $dirs; do
@@ -36,7 +34,7 @@ pin_dock_item() {
     if [ $app_location = null ]; then
         echo 'App '$1' not found'
     else
-        echo 'Found '$1' in '$app_location
+        echo 'Pinning '$app_location' to dock'
         defaults write com.apple.dock persistent-apps -array-add \
             "<dict><key>tile-data</key><dict><key>file-data</key><dict>\
             <key>_CFURLString</key><string>"$app_location"</string><key>_CFURLStringType</key>\
@@ -45,11 +43,13 @@ pin_dock_item() {
 }
 
 set_dock() {
+    echo "Pinning dock items"
     defaults write com.apple.dock persistent-apps -array
     for var in "$@"
     do
         pin_dock_item $var
     done
+    echo "Restarting dock"
     killall Dock
 }
 
