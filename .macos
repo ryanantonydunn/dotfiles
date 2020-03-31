@@ -45,8 +45,8 @@ echo "installing a few global npm packages"
 npm install -g npx create-react-app gatsby-cli http-server
 
 echo "installing apps with brew cask"
-brew cask install android-studio brave-browser docker evernote firefox google-chrome \
-harvest iterm2 malwarebytes obs slack spotify visual-studio-code vlc whatsapp
+brew cask install android-studio android-platform-tools brave-browser docker evernote firefox \
+google-chrome harvest iterm2 malwarebytes obs slack spotify visual-studio-code vlc whatsapp
 
 echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
