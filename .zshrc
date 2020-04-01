@@ -75,6 +75,8 @@ alias dcst="docker-compose start"
 alias gcleanraw="git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch"
 alias gclean="gcleanraw -d"
 
+alias gf="git fetch --all"
+
 alias gcm="git add -A && git commit -m"
 
 alias gps="git push"
