@@ -58,7 +58,6 @@ set_dock() {
 # ===================
 
 # Misc helpers
-alias projects="cd ~/Documents/projects"
 alias rnm="rm -rf node_modules"
 
 #Raildiary helpers
@@ -75,6 +74,8 @@ alias dcst="docker-compose start"
 # Git helpers
 alias gcleanraw="git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch"
 alias gclean="gcleanraw -d"
+
+alias gcm="git add -A && git commit -m"
 
 alias gps="git push"
 alias gpsu="gps -u origin HEAD"
