@@ -61,15 +61,15 @@ set_dock() {
 alias rnm="rm -rf node_modules"
 
 #Raildiary helpers
-alias rdw="cd ~/Documents/projects/raildiary-web"
-alias rdc="cd ~/Documents/projects/raildiary-cms"
-alias sda="cd ~/Documents/projects/sitediary-app"
+alias rdw="cd ~/code/raildiary-web"
+alias rdc="cd ~/code/raildiary-cms"
+alias sda="cd ~/code/sitediary-app"
 alias ym="yarn middleware"
-alias cp="docker-compose exec php-fpm clean-pimcore"
+alias dcp="docker-compose exec php-fpm clean-pimcore"
 
 # Docker helpers
-alias dcsp="docker-compose stop"
-alias dcst="docker-compose start"
+alias dsp="docker-compose stop"
+alias dst="docker-compose start"
 
 # Git helpers
 alias gcleanraw="git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch"
