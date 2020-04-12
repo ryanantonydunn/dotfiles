@@ -42,7 +42,7 @@ echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
 echo "installing a few global npm packages"
-npm install -g npx create-react-app gatsby-cli http-server
+npm install -g npx create-react-app gatsby-cli http-server fauna-shell
 
 echo "installing apps with brew cask"
 brew cask install android-studio android-platform-tools brave-browser docker evernote firefox \
