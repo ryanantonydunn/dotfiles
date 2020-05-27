@@ -66,6 +66,7 @@ alias rdc="cd ~/code/raildiary-cms"
 alias sda="cd ~/code/sitediary-app"
 alias ym="yarn middleware"
 alias dcp="docker-compose exec php-fpm clean-pimcore"
+alias rd-migrate="docker-compose exec php-fpm php bin/console pimcore:migrations:migrate -s raildiary_migrations -n --env=local"
 
 # Docker helpers
 alias dsp="docker-compose stop"
