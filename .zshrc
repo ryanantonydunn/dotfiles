@@ -6,6 +6,9 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 NVM_HOMEBREW="/usr/local/opt/nvm/nvm.sh"
 [ -s "$NVM_HOMEBREW" ] && \. "$NVM_HOMEBREW"
 
@@ -58,19 +61,13 @@ set_dock() {
 # ===================
 
 # Misc helpers
+alias mdt="cd ~/code/my-daily-tracker"
 alias rnm="rm -rf node_modules"
-
-#Raildiary helpers
-alias rdw="cd ~/code/raildiary-web"
-alias rdc="cd ~/code/raildiary-cms"
-alias sda="cd ~/code/sitediary-app"
-alias ym="yarn middleware"
-alias dcp="docker-compose exec php-fpm clean-pimcore"
-alias rd-migrate="docker-compose exec php-fpm php bin/console pimcore:migrations:migrate -s raildiary_migrations -n --env=local"
 
 # Docker helpers
 alias dsp="docker-compose stop"
 alias dst="docker-compose start"
+alias dockernuke="docker system prune --all && docker volume prune"
 
 # Git helpers
 alias gcleanraw="git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch"
