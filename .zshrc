@@ -87,3 +87,5 @@ alias gplod="gplo develop"
 alias gc="git checkout"
 alias gb="gc -b"
 alias gcd="gc develop"
+alias gcm="gc master"
+alias gbd="git branch -D" #branch-name
