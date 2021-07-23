@@ -63,6 +63,7 @@ set_dock() {
 # Misc helpers
 alias mdt="cd ~/code/my-daily-tracker"
 alias rnm="rm -rf node_modules"
+alias sshkey="pbcopy < ~/.ssh/id_rsa.pub"
 
 # Docker helpers
 alias dsp="docker-compose stop"
