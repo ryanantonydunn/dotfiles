@@ -46,3 +46,9 @@ gbfd () { # delete git branches by search
     git branch | grep $1 | xargs git branch -D
 }
 alias gbd="git branch -D" #branch-name
+
+# open any folder in pycharm
+pycharm () {
+    open -na "PyCharm CE" --args "$1"
+}
+
