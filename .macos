@@ -35,26 +35,26 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo "brew installing stuff"
 # Watchman used by React Native
 # For project ants - pkg-config cairo pango libpng jpeg giflib librsvg
-brew install git zsh nvm python yarn watchman
+brew install azure-cli cocoapods git python@3.8 python@3.9 python@3.10 watchman nvm yarn openssl@1.1 zsh
 
 echo "installing node"
-nvm install 11.15.0
-nvm use node
+nvm install 12.18.0
+nvm install 14.17.3
 
 echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
 echo "installing a few global npm packages"
-npm install -g npx create-react-app gatsby-cli http-server fauna-shell
+npm install -g npx create-react-app gatsby-cli http-server
 
-echo "installing apps with brew cask"
-brew cask install android-studio android-platform-tools brave-browser docker evernote firefox \
-google-chrome harvest iterm2 malwarebytes obs slack spotify visual-studio-code vlc whatsapp
+echo "installing apps with homebrew"
+brew install --cask android-studio visual-studio-code spotify simplenote docker whatsapp firefox iterm2 sonos slack pycharm
+# install xcode by hand
 
 echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
 touch ~/.ssh/config
-ssh-keygen -t rsa -b 4096 -C "contact@ryandunn.dev"
+ssh-keygen -t rsa -b 4096 -C "ryan.dunn@codecomputerlove.com"
 echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config
 eval "$(ssh-agent -s)"
 echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
@@ -67,10 +67,6 @@ ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 echo "setting default shell to zsh"
 chsh -s /bin/zsh
 source ~/.zshrc
-
-echo "Pinning dock icons"
-set_dock Contacts Mail Calendar Slack WhatsApp 'Google Chrome' iTerm 'Visual Studio Code' Spotify Harvest Evernote 'System Preferences'
-
 
 echo "making system modifications:"
 
@@ -867,9 +863,10 @@ done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
 printf "TODO:\n\
-* Login to browser \n\
+* Login to chrome and sync \n\
+* Restore documents \n\
 * Login to bitwarden \n\
-* copy git config \n\
+* Copy git config \n\
 * Login to everything else \n\
 * Download XCode
 * Set up Android Studio
