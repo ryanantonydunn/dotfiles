@@ -27,37 +27,7 @@ mkdir -p "${HOME}/code"
 
 echo "installing homebrew"
 # install homebrew https://brew.sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-echo "installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-echo "brew installing stuff"
-# Watchman used by React Native
-# For project ants - pkg-config cairo pango libpng jpeg giflib librsvg
-brew install azure-cli cocoapods git python@3.8 python@3.9 python@3.10 watchman nvm yarn openssl@1.1 zsh
-
-echo "installing node"
-nvm install 12.18.0
-nvm install 14.17.3
-
-echo "node --version: $(node --version)"
-echo "npm --version: $(npm --version)"
-
-echo "installing a few global npm packages"
-npm install -g npx create-react-app gatsby-cli http-server
-
-echo "installing apps with homebrew"
-brew install --cask android-studio visual-studio-code spotify simplenote docker whatsapp firefox iterm2 sonos slack pycharm
-# install xcode by hand
-
-echo "Generating an RSA token for GitHub"
-mkdir -p ~/.ssh
-touch ~/.ssh/config
-ssh-keygen -t rsa -b 4096 -C "ryan.dunn@codecomputerlove.com"
-echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config
-eval "$(ssh-agent -s)"
-echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "cloning dotfiles"
 git clone git@github.com:ryanantonydunn/dotfiles.git "${HOME}/dotfiles"
@@ -67,6 +37,36 @@ ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 echo "setting default shell to zsh"
 chsh -s /bin/zsh
 source ~/.zshrc
+
+echo "installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Generating an RSA token for GitHub"
+mkdir -p ~/.ssh
+touch ~/.ssh/config
+ssh-keygen -t rsa -b 4096 -N '' -f ~/.ssh/id_rsa 
+
+echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config
+eval "$(ssh-agent -s)"
+echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
+
+echo "installing node"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install 12.18.0
+nvm install 14.17.3
+
+echo "node --version: $(node --version)"
+echo "npm --version: $(npm --version)"
+
+echo "installing a few global npm packages"
+npm install -g npx create-react-app gatsby-cli http-server
+
+echo "brew installing stuff"
+brew install azure-cli cocoapods git python@3.8 python@3.9 python@3.10 watchman yarn openssl@1.1 zsh
+
+echo "installing apps with homebrew"
+brew install --cask android-studio visual-studio-code spotify simplenote docker whatsapp firefox iterm2 slack pycharm google-chrome
+# install xcode by hand
 
 echo "making system modifications:"
 
