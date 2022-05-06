@@ -23,6 +23,8 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 # ===================
 
+alias sshlog="~/dotfiles/sshlog.sh"
+
 alias rnm="rm -rf node_modules"
 alias sshkey="pbcopy < ~/.ssh/id_rsa.pub"
 
